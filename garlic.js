@@ -153,12 +153,14 @@
 
           // for checkboxes and radios
           if ( 'checked' === storedValue || this.$element.val() === storedValue ) {
-            return this.$element.attr( 'checked', true );
+            this.$element.attr( 'checked', true );
 
           // only needed for checkboxes
           } else if ( 'unchecked' === storedValue ) {
             this.$element.attr( 'checked', false );
           }
+          
+          this.options.onRetrieve( this.$element, storedValue );
 
           return;
         }
